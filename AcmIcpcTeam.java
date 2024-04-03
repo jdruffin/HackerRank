@@ -56,8 +56,6 @@ public class AcmIcpcTeam {
 
         int n = Integer.parseInt(firstMultipleInput[0]);
 
-        int m = Integer.parseInt(firstMultipleInput[1]);
-
         List<String> topic = IntStream.range(0, n).mapToObj(i -> {
             try {
                 return bufferedReader.readLine();
