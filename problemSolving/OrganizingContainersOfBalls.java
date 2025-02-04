@@ -42,8 +42,7 @@ class OrganizingContainersOfBallsResult {
 public class OrganizingContainersOfBalls {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        // BufferedWriter bufferedWriter = new BufferedWriter(new
-        // FileWriter(System.getenv("OUTPUT_PATH")));
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int q = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -66,15 +65,14 @@ public class OrganizingContainersOfBalls {
 
                 String result = OrganizingContainersOfBallsResult.organizingContainers(container);
 
-                System.out.println(result);
-                // bufferedWriter.write(result);
-                // bufferedWriter.newLine();
+                bufferedWriter.write(result);
+                bufferedWriter.newLine();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
 
         bufferedReader.close();
-        // bufferedWriter.close();
+        bufferedWriter.close();
     }
 }

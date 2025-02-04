@@ -1,0 +1,9 @@
+FROM gcc:latest
+
+COPY . /c
+
+WORKDIR /c/
+
+RUN gcc -o Helloworld helloworld.c
+
+CMD ["./Helloworld"]

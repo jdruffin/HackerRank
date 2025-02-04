@@ -37,8 +37,7 @@ class TaumAndBdayResult {
 public class TaumAndBday {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        // BufferedWriter bufferedWriter = new BufferedWriter(new
-        // FileWriter(System.getenv("OUTPUT_PATH")));
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int t = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -60,10 +59,8 @@ public class TaumAndBday {
 
                 long result = TaumAndBdayResult.taumBday(b, w, bc, wc, z);
 
-                System.out.println(result);
-
-                // bufferedWriter.write(String.valueOf(result));
-                // bufferedWriter.newLine();
+                bufferedWriter.write(String.valueOf(result));
+                bufferedWriter.newLine();
 
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -71,6 +68,6 @@ public class TaumAndBday {
         });
 
         bufferedReader.close();
-        // bufferedWriter.close();
+        bufferedWriter.close();
     }
 }

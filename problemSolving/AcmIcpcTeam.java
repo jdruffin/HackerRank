@@ -1,4 +1,3 @@
-package HackerRank;
 
 import java.io.*;
 import java.util.*;
@@ -49,8 +48,7 @@ class AcmIcpcTeamResult {
 public class AcmIcpcTeam {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        // BufferedWriter bufferedWriter = new BufferedWriter(new
-        // FileWriter(System.getenv("OUTPUT_PATH")));
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
         String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
@@ -66,16 +64,15 @@ public class AcmIcpcTeam {
                 .collect(toList());
 
         List<Integer> result = AcmIcpcTeamResult.acmTeam(topic);
-        System.out.println(result);
 
-        // bufferedWriter.write(
-        // result.stream()
-        // .map(Object::toString)
-        // .collect(joining("\n"))
-        // + "\n"
-        // );
+        bufferedWriter.write(
+        result.stream()
+        .map(Object::toString)
+        .collect(joining("\n"))
+        + "\n"
+        );
 
         bufferedReader.close();
-        // bufferedWriter.close();
+        bufferedWriter.close();
     }
 }

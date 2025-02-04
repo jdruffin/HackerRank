@@ -51,8 +51,7 @@ class MinimumDistancesResult {
 public class MinimumDistances {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        // BufferedWriter bufferedWriter = new BufferedWriter(new
-        // FileWriter(System.getenv("OUTPUT_PATH")));
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -61,12 +60,11 @@ public class MinimumDistances {
                 .collect(toList());
 
         int result = MinimumDistancesResult.minimumDistances(a);
-        System.out.println(result);
 
-        // bufferedWriter.write(String.valueOf(result));
-        // bufferedWriter.newLine();
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
 
         bufferedReader.close();
-        // bufferedWriter.close();
+        bufferedWriter.close();
     }
 }

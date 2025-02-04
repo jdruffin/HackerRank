@@ -1,5 +1,3 @@
-package HackerRank;
-
 import java.io.*;
 
 class Result {
@@ -38,20 +36,18 @@ class Result {
 public class RepeatedString {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        // BufferedWriter bufferedWriter = new BufferedWriter(new
-        // FileWriter(System.getenv("OUTPUT_PATH")));SA
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
         String s = bufferedReader.readLine();
 
         long n = Long.parseLong(bufferedReader.readLine().trim());
 
         long result = Result.repeatedString(s, n);
-        System.out.println(result);
 
-        // bufferedWriter.write(String.valueOf(result));
-        // bufferedWriter.newLine();
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
 
         bufferedReader.close();
-        // bufferedWriter.close();
+        bufferedWriter.close();
     }
 }

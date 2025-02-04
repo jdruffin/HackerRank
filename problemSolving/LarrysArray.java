@@ -44,8 +44,7 @@ class LarrysArrayResult {
 public class LarrysArray {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        // BufferedWriter bufferedWriter = new BufferedWriter(new
-        // FileWriter(System.getenv("OUTPUT_PATH")));
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int t = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -58,16 +57,15 @@ public class LarrysArray {
                         .collect(toList());
 
                 String result = LarrysArrayResult.larrysArray(A);
-                System.out.println(result);
 
-                // bufferedWriter.write(result);
-                // bufferedWriter.newLine();
+                bufferedWriter.write(result);
+                bufferedWriter.newLine();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
 
         bufferedReader.close();
-        // bufferedWriter.close();
+        bufferedWriter.close();
     }
 }
