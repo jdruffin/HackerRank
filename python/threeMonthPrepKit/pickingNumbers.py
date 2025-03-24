@@ -6,19 +6,25 @@ import random
 import re
 import sys
 from collections import Counter
-
 #
-# Complete the 'lonelyinteger' function below.
+# Complete the 'pickingNumbers' function below.
 #
 # The function is expected to return an INTEGER.
 # The function accepts INTEGER_ARRAY a as parameter.
 #
 
-def lonelyinteger(a):
+def pickingNumbers(a):
     # Write your code here
     counter = Counter(a)
 
-    return counter.most_common()[-1][0]
+    answer = 0
+    for key in counter:
+        if key+1 in counter:
+            answer = max(answer, counter[key] + counter[key+1])
+        else:
+            answer = max(answer, counter[key])
+
+    return answer
 
 if __name__ == '__main__':
     fptr = sys.stdout
@@ -27,7 +33,7 @@ if __name__ == '__main__':
 
     a = list(map(int, input().rstrip().split()))
 
-    result = lonelyinteger(a)
+    result = pickingNumbers(a)
 
     fptr.write(str(result) + '\n')
 

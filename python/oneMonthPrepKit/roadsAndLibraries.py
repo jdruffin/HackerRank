@@ -19,9 +19,50 @@ import sys
 
 def roadsAndLibraries(n, c_lib, c_road, cities):
     # Write your code here
+    def pathsPerGroup(city, visited):
+        paths = 0
+        queue = [city]
+        visited.add(city)
+
+        while queue:
+            currentCity = queue.pop()
+            if city in adjacencyList.keys():
+                for adjacentCity in adjacencyList[city]:
+                    if adjacentCity not in visited:
+                        queue.append(adjacentCity)
+                        visited.add(adjacentCity)
+                        paths += 1
+        return paths
+
+    if c_lib < c_road:
+        return n * c_lib
+    else:
+        adjacencyList = {}
+        for path in cities:
+            city1, city2 = path
+            if city1 not in adjacencyList.keys():
+                adjacencyList.update({city1: [city2]})
+            else:
+                adjacencyList[city1].append(city2)
+            if city2 not in adjacencyList.keys():
+                adjacencyList.update({city2: [city1]})
+            else:
+                adjacencyList[city2].append(city1)
+
+        numOfGroups = 0
+        numOfPaths = 0
+
+        visited = set()
+
+        for city in range(1, n+1):
+            if city not in visited:
+                numOfPaths += pathsPerGroup(city, visited)
+                numOfGroups += 1
+
+        return (numOfGroups * c_lib) + (numOfPaths* c_road)
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    fptr = sys.stdout
 
     q = int(input().strip())
 
