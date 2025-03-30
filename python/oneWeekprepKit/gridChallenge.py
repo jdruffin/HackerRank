@@ -23,7 +23,6 @@ def gridChallenge(grid):
         column = ''
         for j in range(len(sortedGrid)):
             column+=sortedGrid[j][i]
-        print(column)
         if(column != ''.join(sorted(column))):
             return 'NO'
         

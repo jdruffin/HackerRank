@@ -5,6 +5,7 @@ import os
 import random
 import re
 import sys
+from collections import deque
 
 #
 # Complete the 'equalStacks' function below.
@@ -19,21 +20,16 @@ import sys
 
 def equalStacks(h1, h2, h3):
     x1, x2, x3 = sum(h1), sum(h2), sum(h3)
+    q1, q2, q3 = deque(h1), deque(h2), deque(h3)
     while True:
         if x1 == x2 and x2 == x3:
             break
         elif x1 >= x2 and x1 >= x3:
-            val = h1[0]
-            x1 -= val
-            h1.remove(h1[0])
+            x1 -= q1.popleft()
         elif x3 >= x2 and x3 >= x1:
-            val = h3[0]
-            x3 -= val
-            h3.remove(h3[0])
+            x3 -= q3.popleft()
         elif x2 >= x1 and x2 >= x3:
-            val = h2[0]
-            x2 -= val
-            h2.remove(h2[0])
+            x2 -= q2.popleft()
     return x1
 
 

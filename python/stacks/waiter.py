@@ -15,8 +15,6 @@ import sys
 #  2. INTEGER q
 #
 
-#sort plates in 
-
 def primeNumbersBelowIndex(q):
     primes = []
     boolArray = [True] * (104729) #10,000th prime value 104729

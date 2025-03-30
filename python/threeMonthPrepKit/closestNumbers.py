@@ -16,6 +16,23 @@ import sys
 def closestNumbers(arr):
     # Write your code here
 
+    arr.sort()
+    minDistance = 200000000
+    for i in range(1,len(arr)):
+        difference = arr[i] - arr[i-1]
+        if difference < minDistance:
+            minDistance = difference
+
+    returnArray = []
+    for i in range(1,len(arr)):
+        difference = arr[i] - arr[i-1]
+        if difference == minDistance:
+            returnArray.append(arr[i-1])
+            returnArray.append(arr[i])
+
+    return returnArray
+
+
 if __name__ == '__main__':
     fptr = sys.stdout
 

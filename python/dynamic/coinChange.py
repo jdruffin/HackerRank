@@ -23,7 +23,6 @@ def getWays(n, c):
     dp2 = [0 for i in range(n+1)]
 
     for coin in sortedCoins:
-
         for i in range(n+1):
             if i == 0:
                 dp[i] = 1
